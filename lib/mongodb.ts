@@ -31,7 +31,10 @@ async function connectToDB() {
 	if (cached.conn) return cached.conn;
 
 	if (!cached.promise) {
-		cached.promise = mongoose.connect(MONGODB_URI, {
+		if (!MONGODB_URI) {
+			throw new Error("MONGODB_URI is not defined");
+		}
+		cached.promise = mongoose.connect(MONGODB_URI as string, {
 			dbName: "travel_tours_db",
 		});
 	}
