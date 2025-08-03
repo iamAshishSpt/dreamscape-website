@@ -10,6 +10,7 @@ import {
 	Star,
 	Users,
 } from "lucide-react";
+import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 
 export default function AboutPage() {
@@ -22,7 +23,7 @@ export default function AboutPage() {
 				<div className="absolute inset-0 bg-black/20"></div>
 				<div className="relative max-w-7xl mx-auto px-6 py-16 text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-						About DreamEscape
+						About DreamScape
 					</h1>
 					<p className="text-xl text-gray-700 max-w-3xl mx-auto">
 						Your trusted partner in exploring the majestic Himalayas of Nepal.
@@ -409,6 +410,9 @@ export default function AboutPage() {
 					</div>
 				</div>
 			</section>
+
+			{/* Footer */}
+			<Footer />
 		</div>
 	);
 }

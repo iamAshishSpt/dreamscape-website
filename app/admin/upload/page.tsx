@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import Footer from "../../components/Footer";
 
 type FormValues = {
 	title: string;
@@ -83,44 +84,51 @@ export default function UploadPage() {
 	};
 
 	return (
-		<div className="max-w-xl mx-auto mt-20 bg-white p-8 rounded-lg shadow-lg">
-			<h2 className="text-2xl font-bold mb-6 text-gray-800">
-				Upload a New Slider Image
-			</h2>
-			<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-				<input
-					{...register("title")}
-					placeholder="Title"
-					required
-					className="w-full px-4 py-2 border rounded text-black placeholder:text-gray-500"
-				/>
-				<input
-					{...register("location")}
-					placeholder="Location"
-					required
-					className="w-full px-4 py-2 border rounded text-black placeholder:text-gray-500"
-				/>
-				<textarea
-					{...register("subheading")}
-					placeholder="Subheading"
-					required
-					className="w-full px-4 py-2 border rounded text-black placeholder:text-gray-500"
-				/>
-				<input
-					type="file"
-					accept="image/*"
-					required
-					{...register("image")}
-					className="w-full text-black"
-				/>
-				<button
-					type="submit"
-					disabled={uploading}
-					className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-				>
-					{uploading ? "Uploading..." : "Submit"}
-				</button>
-			</form>
+		<div className="min-h-screen bg-gray-50">
+			<div className="max-w-xl mx-auto pt-20 pb-8 px-6">
+				<div className="bg-white p-8 rounded-lg shadow-lg">
+					<h2 className="text-2xl font-bold mb-6 text-gray-800">
+						Upload a New Slider Image
+					</h2>
+					<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+						<input
+							{...register("title")}
+							placeholder="Title"
+							required
+							className="w-full px-4 py-2 border rounded text-black placeholder:text-gray-500"
+						/>
+						<input
+							{...register("location")}
+							placeholder="Location"
+							required
+							className="w-full px-4 py-2 border rounded text-black placeholder:text-gray-500"
+						/>
+						<textarea
+							{...register("subheading")}
+							placeholder="Subheading"
+							required
+							className="w-full px-4 py-2 border rounded text-black placeholder:text-gray-500"
+						/>
+						<input
+							type="file"
+							accept="image/*"
+							required
+							{...register("image")}
+							className="w-full text-black"
+						/>
+						<button
+							type="submit"
+							disabled={uploading}
+							className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+						>
+							{uploading ? "Uploading..." : "Submit"}
+						</button>
+					</form>
+				</div>
+			</div>
+
+			{/* Footer */}
+			<Footer />
 		</div>
 	);
 }
