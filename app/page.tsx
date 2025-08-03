@@ -327,7 +327,7 @@ export default function Home() {
 			</AnimatePresence>
 
 			{/* --- SLIDER --- */}
-			<div className="fixed bottom-8 right-0 z-50">
+			<div className="fixed bottom-8 right-0 z-50 hidden md:block">
 				<div className="w-[432px] h-32 rounded-2xl overflow-hidden">
 					<motion.div
 						className="flex h-full gap-4"
