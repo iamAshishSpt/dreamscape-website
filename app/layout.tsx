@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Jersey_25 } from "next/font/google";
+import { Geist, Geist_Mono, Jersey_25, Montserrat } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
 import QueryProvider from "./providers/QueryProviders";
@@ -20,6 +20,12 @@ const jersey = Jersey_25({
 	weight: "400",
 });
 
+const montserrat = Montserrat({
+	variable: "--font-montserrat",
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
 	title: "Nepal Travel & Tours - Discover the Himalayas",
 	description:
@@ -33,8 +39,24 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<head>
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link
+					rel="preconnect"
+					href="https://fonts.gstatic.com"
+					crossOrigin="anonymous"
+				/>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Absortile:wght@400;500;600;700&family=Baron+Neue:wght@400;500;600;700&display=swap"
+					rel="stylesheet"
+				/>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap"
+					rel="stylesheet"
+				/>
+			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${jersey.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} ${jersey.variable} ${montserrat.variable} antialiased`}
 			>
 				<QueryProvider>{children}</QueryProvider>
 				<Toaster position="top-center" richColors closeButton />

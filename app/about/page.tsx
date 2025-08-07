@@ -10,10 +10,13 @@ import {
 	Star,
 	Users,
 } from "lucide-react";
+import Image from "next/image";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 
 export default function AboutPage() {
+	const starArray = Array.from({ length: 5 }, (_, i) => ({ id: i }));
+
 	return (
 		<div className="min-h-screen bg-white">
 			<Navbar />
@@ -134,7 +137,8 @@ export default function AboutPage() {
 						</div>
 						<div className="relative">
 							<div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-								<img
+								<Image
+									fill
 									src="/images/everest.jpg"
 									alt="Mount Everest"
 									className="w-full h-full object-cover"
@@ -272,9 +276,9 @@ export default function AboutPage() {
 					<div className="grid md:grid-cols-3 gap-8">
 						<div className="bg-white p-8 rounded-xl shadow-lg">
 							<div className="flex items-center mb-4">
-								{[...Array(5)].map((_, i) => (
+								{starArray.map((star) => (
 									<Star
-										key={`star-sarah-${i}`}
+										key={`star-sarah-${star.id}`}
 										className="w-5 h-5 text-yellow-400 fill-current"
 									/>
 								))}
@@ -298,9 +302,9 @@ export default function AboutPage() {
 
 						<div className="bg-white p-8 rounded-xl shadow-lg">
 							<div className="flex items-center mb-4">
-								{[...Array(5)].map((_, i) => (
+								{starArray.map((star) => (
 									<Star
-										key={`star-laura-${i}`}
+										key={`star-laura-${star.id}`}
 										className="w-5 h-5 text-yellow-400 fill-current"
 									/>
 								))}
@@ -324,9 +328,9 @@ export default function AboutPage() {
 
 						<div className="bg-white p-8 rounded-xl shadow-lg">
 							<div className="flex items-center mb-4">
-								{[...Array(5)].map((_, i) => (
+								{starArray.map((star) => (
 									<Star
-										key={`star-kevin-${i}`}
+										key={`star-kevin-${star.id}`}
 										className="w-5 h-5 text-yellow-400 fill-current"
 									/>
 								))}
@@ -351,7 +355,7 @@ export default function AboutPage() {
 			</section>
 
 			{/* CTA Section */}
-			<section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
+			<section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 m-10 rounded-4xl">
 				<div className="max-w-7xl mx-auto px-6 text-center">
 					<h2 className="text-4xl font-bold text-white mb-4">
 						Not sure which tour is right for you? <br />
