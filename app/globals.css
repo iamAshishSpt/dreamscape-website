@@ -46,8 +46,6 @@ body {
 	font-family: var(--font-montserrat), sans-serif;
 }
 
-
-
 .snow-canvas {
   position: absolute;
   left: 0;
@@ -82,6 +80,73 @@ footer::before {
     background-position: center;
     background-repeat: no-repeat;
   }
+}
+
+/* Loading Screen Specific Styles */
+.loading-screen {
+  background: linear-gradient(135deg, #1A201A 0%, #2D3A2D 100%);
+}
+
+.loading-screen .digit {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.loading-screen .num1offset1 {
+  position: relative;
+  right: -25px;
+}
+
+.loading-screen .num1offset2 {
+  position: relative;
+  right: -10px;
+}
+
+.loading-screen .num {
+  /* Ensure proper height calculation for GSAP animations */
+  height: 100px;
+  line-height: 102px;
+}
+
+/* Loading animation utilities */
+@layer utilities {
+  .loading-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .loading-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 /* Smooth underline utility (left->right grow) */

@@ -65,12 +65,14 @@ export function runMenuAnimation() {
 
 	function cleanUpPreviewImages() {
 		// Keep only the last 3 images
+		if (!menuPreviewImg) return;
 		while (menuPreviewImg.children.length > 3) {
 			menuPreviewImg.removeChild(menuPreviewImg.firstElementChild!);
 		}
 	}
 
 	function resetPreviewImage() {
+		if (!menuPreviewImg) return;
 		menuPreviewImg.innerHTML = "";
 		const defaultPreviewImage = document.createElement("img");
 		defaultPreviewImage.src = "/images/everest-footer.jpg";

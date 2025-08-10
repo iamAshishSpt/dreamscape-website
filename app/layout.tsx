@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Jersey_25, Montserrat } from "next/font/google";
 import { Toaster } from "sonner";
+import InitialLoader from "./components/InitialLoader";
 import "./globals.css";
 import QueryProvider from "./providers/QueryProviders";
 
@@ -58,7 +59,9 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} ${jersey.variable} ${montserrat.variable} antialiased`}
 			>
-				<QueryProvider>{children}</QueryProvider>
+				<QueryProvider>
+					<InitialLoader>{children}</InitialLoader>
+				</QueryProvider>
 				<Toaster position="top-center" richColors closeButton />
 			</body>
 		</html>
