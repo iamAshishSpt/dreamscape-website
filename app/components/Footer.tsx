@@ -93,18 +93,22 @@ export default function Footer() {
 	return (
 		<footer
 			ref={footerRef}
-			className="relative text-gray-800 overflow-hidden bg-transparent"
+			className="relative text-gray-800 overflow-hidden bg-transparent w-full h-full"
 		>
 			{/* SVG Mountain Top Shape with Everest Background */}
 			<div
-				className="absolute top-0 left-0 w-full h-[1200px] z-10 bg-cover bg-center"
-				style={{ backgroundImage: "url('/images/everest-footer.png')" }}
+				className="absolute w-full z-10 bg-cover bg-top "
+				style={{
+					backgroundImage: "url('/images/everest-footer.png')",
+					height: "calc(500px + 100%)",
+					top: "0",
+				}}
 			>
 				<Image
 					src="/images/mountain.svg"
 					alt="Mountain"
 					fill
-					className="w-full h-full object-cover z-20 relative mix-blend-multiply"
+					className="object-cover object-top z-20  mix-blend-multiply"
 					priority
 				/>
 			</div>
@@ -117,7 +121,7 @@ export default function Footer() {
 			/>
 
 			{/* Footer Content */}
-			<div className="relative z-30 mt-90 pb-12 px-6 bg-transparent">
+			<div className="relative z-30 pt-[600px] px-6 bg-transparent ">
 				{/* Main Footer Content */}
 				<div className="max-w-7xl mx-auto px-6 py-16">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
