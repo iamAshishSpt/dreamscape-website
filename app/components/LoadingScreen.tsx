@@ -25,34 +25,6 @@ export default function LoadingScreen({
 
 	return (
 		<div className={`w-screen h-screen overflow-hidden ${className}`}>
-			{/* Website Content */}
-			<div
-				ref={refs.websiteContent}
-				className="absolute inset-0 flex justify-center items-center"
-			>
-				<div ref={refs.header} className="relative w-max h-max">
-					<div className="flex flex-col items-center">
-						<h1
-							className="text-center relative top-20 text-8xl uppercase font-normal text-white mb-4 opacity-0"
-							style={{
-								animation: "fadeInUp 1s ease-out 0.5s forwards",
-							}}
-						>
-							Nepal Travel
-						</h1>
-						<h2
-							className="text-center relative top-20 text-4xl uppercase font-normal text-white/80 opacity-0"
-							style={{
-								animation: "fadeInUp 1s ease-out 1s forwards",
-							}}
-						>
-							Your gateway to the Himalayas
-						</h2>
-					</div>
-					<div className="absolute inset-0 w-full h-full"></div>
-				</div>
-			</div>
-
 			{/* Loading Screen */}
 			<div
 				ref={refs.loadingScreen}
@@ -81,29 +53,6 @@ export default function LoadingScreen({
 						ref={refs.loader2}
 						className="relative bg-white w-[100px] h-[50px]"
 					></div>
-				</div>
-
-				{/* Progress Bar */}
-				<div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 w-96 h-1 bg-white/20 rounded-full overflow-hidden">
-					<div
-						className="h-full bg-white rounded-full transition-all duration-300 ease-out"
-						style={{
-							width: "0%",
-							animation: "progress 6s ease-out forwards",
-						}}
-					/>
-				</div>
-
-				{/* Loading Text */}
-				<div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white/60 font-montserrat text-sm uppercase tracking-widest">
-					<span
-						className="inline-block opacity-0"
-						style={{
-							animation: "fadeIn 0.5s ease-out 0.5s forwards",
-						}}
-					>
-						Loading...
-					</span>
 				</div>
 
 				{/* Counter */}

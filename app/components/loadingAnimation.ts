@@ -10,8 +10,6 @@ interface LoadingElements {
 	counter1: HTMLElement; // hundreds
 	counter2: HTMLElement; // tens
 	counter3: HTMLElement; // ones
-	websiteContent: HTMLElement;
-	header: HTMLElement;
 	countersWrap: HTMLElement; // wrapper around all three digits
 }
 
@@ -58,6 +56,8 @@ export function runLoadingAnimation(
 	elements: LoadingElements,
 	setLoadingState: SetLoadingState,
 ) {
+	console.log("runLoadingAnimation called with elements:", elements);
+
 	const {
 		loadingScreen,
 		loader,
@@ -69,13 +69,26 @@ export function runLoadingAnimation(
 		countersWrap,
 	} = elements;
 
+	console.log("Destructured elements:", {
+		loadingScreen: !!loadingScreen,
+		loader: !!loader,
+		loader1: !!loader1,
+		loader2: !!loader2,
+		counter1: !!counter1,
+		counter2: !!counter2,
+		counter3: !!counter3,
+		countersWrap: !!countersWrap,
+	});
+
 	// master timing
 	const END = 6; // when counters & loader1 finish together
-	const LIFT = 0; // we’re NOT lifting digits; keep at 0 to skip
+	const LIFT = 0; // we're NOT lifting digits; keep at 0 to skip
 	const EXIT = 0.05; // fade wrapper a hair after END
 
+	console.log("Starting GSAP animation...");
 	const ctx = gsap.context(() => {
 		const master = gsap.timeline({ defaults: { ease: "power2.out" } });
+		console.log("GSAP timeline created");
 
 		// ----- LOADER BARS -----
 		master.from(loader1, { width: 0, duration: END }, 0); // 0 -> END
@@ -132,6 +145,7 @@ export function runLoadingAnimation(
 				duration: 0.5,
 				ease: "power1.inOut",
 				onComplete: () => {
+					console.log("Loading animation completed, setting state...");
 					setLoadingState((prev) => ({
 						...prev,
 						isLoading: false,
@@ -141,6 +155,8 @@ export function runLoadingAnimation(
 			},
 			END + 1.5,
 		);
+
+		console.log("GSAP animation timeline built");
 	}, loadingScreen);
 
 	return () => ctx.revert();

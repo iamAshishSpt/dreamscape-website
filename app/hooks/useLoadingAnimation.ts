@@ -9,8 +9,6 @@ interface LoadingRefs {
 	counter1: React.RefObject<HTMLDivElement | null>;
 	counter2: React.RefObject<HTMLDivElement | null>;
 	counter3: React.RefObject<HTMLDivElement | null>;
-	websiteContent: React.RefObject<HTMLDivElement | null>;
-	header: React.RefObject<HTMLDivElement | null>;
 	countersWrap: React.RefObject<HTMLDivElement | null>;
 }
 
@@ -57,8 +55,6 @@ export function useLoadingAnimation() {
 	const counter1Ref = useRef<HTMLDivElement>(null);
 	const counter2Ref = useRef<HTMLDivElement>(null);
 	const counter3Ref = useRef<HTMLDivElement>(null);
-	const websiteContentRef = useRef<HTMLDivElement>(null);
-	const headerRef = useRef<HTMLDivElement>(null);
 	const countersWrapRef = useRef<HTMLDivElement>(null);
 
 	// Create refs object
@@ -70,8 +66,6 @@ export function useLoadingAnimation() {
 		counter1: counter1Ref,
 		counter2: counter2Ref,
 		counter3: counter3Ref,
-		websiteContent: websiteContentRef,
-		header: headerRef,
 		countersWrap: countersWrapRef,
 	};
 
@@ -84,7 +78,7 @@ export function useLoadingAnimation() {
 
 	// Check if all refs are available
 	const areRefsReady = useCallback(() => {
-		return (
+		const ready =
 			loadingScreenRef.current &&
 			loaderRef.current &&
 			loader1Ref.current &&
@@ -92,16 +86,30 @@ export function useLoadingAnimation() {
 			counter1Ref.current &&
 			counter2Ref.current &&
 			counter3Ref.current &&
-			websiteContentRef.current &&
-			headerRef.current &&
-			countersWrapRef.current
-		);
+			countersWrapRef.current;
+		console.log("areRefsReady check:", {
+			loadingScreen: !!loadingScreenRef.current,
+			loader: !!loaderRef.current,
+			loader1: !!loader1Ref.current,
+			loader2: !!loader2Ref.current,
+			counter1: !!counter1Ref.current,
+			counter2: !!counter2Ref.current,
+			counter3: !!counter3Ref.current,
+			countersWrap: !!countersWrapRef.current,
+			allReady: ready,
+		});
+		return ready;
 	}, []);
 
 	// Initialize animations
 	useEffect(() => {
-		if (!areRefsReady()) return;
+		console.log("useEffect triggered, checking refs...");
+		if (!areRefsReady()) {
+			console.log("Refs not ready, returning early");
+			return;
+		}
 
+		console.log("All refs ready, initializing animation...");
 		try {
 			const cleanup = runLoadingAnimation(
 				{
@@ -112,8 +120,6 @@ export function useLoadingAnimation() {
 					counter1: counter1Ref.current!,
 					counter2: counter2Ref.current!,
 					counter3: counter3Ref.current!,
-					websiteContent: websiteContentRef.current!,
-					header: headerRef.current!,
 					countersWrap: countersWrapRef.current!,
 				},
 				setLoadingState,
