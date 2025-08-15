@@ -54,7 +54,10 @@ export function runMenuAnimation() {
 		// Keep only the last 3 images
 		if (!menuPreviewImg) return;
 		while (menuPreviewImg.children.length > 3) {
-			menuPreviewImg.removeChild(menuPreviewImg.firstElementChild!);
+			const firstChild = menuPreviewImg.firstElementChild;
+			if (firstChild) {
+				menuPreviewImg.removeChild(firstChild);
+			}
 		}
 	}
 
@@ -229,7 +232,7 @@ export function runMenuAnimation() {
 				rotate: 10,
 				// Tailwind 3.4+: or add class "will-change-transform"
 				// Using style here to avoid needing Tailwind; comment out if you prefer class
-				willChange: "transform, opacity" as any,
+				willChange: "transform, opacity" as const,
 			});
 
 			menuPreviewImg.appendChild(img);

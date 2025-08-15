@@ -191,7 +191,10 @@ export default function TourDetailsPage() {
 							</div>
 						</div>
 						<div className="flex justify-center mt-16">
-							<button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-montserrat font-medium hover:bg-[#D4AF37] hover:text-white transition-colors uppercase tracking-wider">
+							<button
+								type="button"
+								className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-montserrat font-medium hover:bg-[#D4AF37] hover:text-white transition-colors uppercase tracking-wider"
+							>
 								BOOK TOUR
 							</button>
 						</div>
@@ -263,7 +266,10 @@ export default function TourDetailsPage() {
 									</div>
 								))}
 								<div className="flex justify-end mt-4">
-									<button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-montserrat font-medium hover:bg-[#D4AF37] hover:text-white transition-colors uppercase tracking-wider">
+									<button
+										type="button"
+										className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-montserrat font-medium hover:bg-[#D4AF37] hover:text-white transition-colors uppercase tracking-wider"
+									>
 										BOOK TOUR
 									</button>
 								</div>

@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useSpotlightAnimation } from "../hooks/useSpotlightAnimation";
 
 export default function CheckPage() {
-	const { refs, spotlightState } = useSpotlightAnimation();
+	const { refs, spotlightState: _spotlightState } = useSpotlightAnimation();
 
 	return (
 		<div className="min-h-screen bg-black text-white overflow-hidden">
@@ -38,9 +39,10 @@ export default function CheckPage() {
 					ref={refs.spotlightBgImg}
 					className="spotlight-bg-img absolute w-full h-full overflow-hidden transform scale-0 will-change-transform"
 				>
-					<img
+					<Image
 						src="/images/annapurna.jpg"
 						alt="spotlight-bg"
+						fill
 						className="w-full h-full object-cover transform scale-150 will-change-transform"
 					/>
 				</div>

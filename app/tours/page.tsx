@@ -57,11 +57,11 @@ export default function ToursPage() {
 	const [selectedDate, setSelectedDate] = useState("");
 	const [selectedPassengers, setSelectedPassengers] = useState("");
 
-	const nextSlide = () => {
+	const _nextSlide = () => {
 		setCurrentSlide((prev) => (prev + 1) % destinations.length);
 	};
 
-	const prevSlide = () => {
+	const _prevSlide = () => {
 		setCurrentSlide(
 			(prev) => (prev - 1 + destinations.length) % destinations.length,
 		);

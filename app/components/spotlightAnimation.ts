@@ -48,7 +48,7 @@ export function runSpotlightAnimation(
 	gsap.ticker.lagSmoothing(0);
 
 	const {
-		spotlight,
+		spotlight: _spotlight,
 		titlesContainer,
 		imagesContainer,
 		spotlightHeader,
@@ -166,7 +166,10 @@ export function runSpotlightAnimation(
 				gsap.set(titlesContainerElements, {
 					"--before-opacity": "0",
 					"--after-opacity": "0",
-				} as any);
+				} as CSSStyleDeclaration & {
+					"--before-opacity": string;
+					"--after-opacity": string;
+				});
 			} else if (progress > 0.2 && progress <= 0.25) {
 				gsap.set(spotlightBgImg, { transform: "scale(1)" });
 				gsap.set(spotlightBgImg.querySelector("img"), {
@@ -183,7 +186,10 @@ export function runSpotlightAnimation(
 				gsap.set(titlesContainerElements, {
 					"--before-opacity": "1",
 					"--after-opacity": "1",
-				} as any);
+				} as CSSStyleDeclaration & {
+					"--before-opacity": string;
+					"--after-opacity": string;
+				});
 			} else if (progress > 0.25 && progress < 0.95) {
 				gsap.set(spotlightBgImg, { transform: "scale(1)" });
 				gsap.set(spotlightBgImg.querySelector("img"), {
@@ -199,7 +205,10 @@ export function runSpotlightAnimation(
 				gsap.set(titlesContainerElements, {
 					"--before-opacity": "1",
 					"--after-opacity": "1",
-				} as any);
+				} as CSSStyleDeclaration & {
+					"--before-opacity": string;
+					"--after-opacity": string;
+				});
 
 				const switchProgress = (progress - 0.25) / 0.7;
 				const viewportHeight = window.innerHeight;
@@ -254,7 +263,10 @@ export function runSpotlightAnimation(
 				gsap.set(titlesContainerElements, {
 					"--before-opacity": "0",
 					"--after-opacity": "0",
-				} as any);
+				} as CSSStyleDeclaration & {
+					"--before-opacity": string;
+					"--after-opacity": string;
+				});
 			}
 		},
 	});

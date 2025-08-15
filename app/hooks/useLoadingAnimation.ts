@@ -113,14 +113,16 @@ export function useLoadingAnimation() {
 		try {
 			const cleanup = runLoadingAnimation(
 				{
-					loadingScreen: loadingScreenRef.current!,
-					loader: loaderRef.current!,
-					loader1: loader1Ref.current!,
-					loader2: loader2Ref.current!,
-					counter1: counter1Ref.current!,
-					counter2: counter2Ref.current!,
-					counter3: counter3Ref.current!,
-					countersWrap: countersWrapRef.current!,
+					loadingScreen:
+						loadingScreenRef.current ?? document.createElement("div"),
+					loader: loaderRef.current ?? document.createElement("div"),
+					loader1: loader1Ref.current ?? document.createElement("div"),
+					loader2: loader2Ref.current ?? document.createElement("div"),
+					counter1: counter1Ref.current ?? document.createElement("div"),
+					counter2: counter2Ref.current ?? document.createElement("div"),
+					counter3: counter3Ref.current ?? document.createElement("div"),
+					countersWrap:
+						countersWrapRef.current ?? document.createElement("div"),
 				},
 				setLoadingState,
 			);

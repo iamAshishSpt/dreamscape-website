@@ -11,7 +11,7 @@ interface LoadingScreenProps {
 
 export default function LoadingScreen({
 	onComplete,
-	showProgress = true,
+	showProgress: _showProgress = true,
 	className = "",
 }: LoadingScreenProps) {
 	const { refs, loadingState } = useLoadingAnimation();

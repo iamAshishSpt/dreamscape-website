@@ -87,13 +87,19 @@ export function useSpotlightAnimation() {
 
 		const cleanup = runSpotlightAnimation(
 			{
-				spotlight: spotlightRef.current!,
-				titlesContainer: titlesContainerRef.current!,
-				imagesContainer: imagesContainerRef.current!,
-				spotlightHeader: spotlightHeaderRef.current!,
-				titlesContainerElements: titlesContainerElementsRef.current!,
-				introTextElements: introTextElementsRef.current!,
-				spotlightBgImg: spotlightBgImgRef.current!,
+				spotlight: spotlightRef.current ?? document.createElement("div"),
+				titlesContainer:
+					titlesContainerRef.current ?? document.createElement("div"),
+				imagesContainer:
+					imagesContainerRef.current ?? document.createElement("div"),
+				spotlightHeader:
+					spotlightHeaderRef.current ?? document.createElement("div"),
+				titlesContainerElements:
+					titlesContainerElementsRef.current ?? document.createElement("div"),
+				introTextElements:
+					introTextElementsRef.current ?? document.createElement("div"),
+				spotlightBgImg:
+					spotlightBgImgRef.current ?? document.createElement("div"),
 			},
 			setSpotlightState,
 		);

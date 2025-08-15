@@ -61,7 +61,10 @@ export function runMenuAnimation(elements: MenuAnimationElements) {
 		if (!menuPreviewImg) return;
 		// Keep only the last 3 images
 		while (menuPreviewImg.children.length > 3) {
-			menuPreviewImg.removeChild(menuPreviewImg.firstElementChild!);
+			const firstChild = menuPreviewImg.firstElementChild;
+			if (firstChild) {
+				menuPreviewImg.removeChild(firstChild);
+			}
 		}
 	}
 
@@ -314,7 +317,7 @@ export function runMenuAnimation(elements: MenuAnimationElements) {
 				opacity: 0,
 				scale: 1.25,
 				rotate: 10,
-				willChange: "transform, opacity" as any,
+				willChange: "transform, opacity" as const,
 			});
 
 			menuPreviewImg.appendChild(img);

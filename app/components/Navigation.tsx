@@ -11,9 +11,9 @@ interface NavigationProps {
 }
 
 export default function Navigation({
-	currentPage = "Home",
-	heroImage = "/images/everest.jpg",
-	heroTitle = "Annapurna Himalayas Trekking",
+	currentPage: _currentPage = "Home",
+	heroImage: _heroImage = "/images/everest.jpg",
+	heroTitle: _heroTitle = "Annapurna Himalayas Trekking",
 }: NavigationProps) {
 	// Use the custom hook for menu animation
 	const { refs } = useMenuAnimation();

@@ -58,7 +58,7 @@ export function useMenuAnimation() {
 	};
 
 	// Menu state
-	const [menuState, setMenuState] = useState<MenuState>({
+	const [menuState, _setMenuState] = useState<MenuState>({
 		isOpen: false,
 		isAnimating: false,
 	});
@@ -79,11 +79,12 @@ export function useMenuAnimation() {
 		if (!areRefsReady()) return;
 
 		const cleanup = runMenuAnimation({
-			container: containerRef.current!,
-			menuToggle: menuToggleRef.current!,
-			menuOverlay: menuOverlayRef.current!,
-			menuContent: menuContentRef.current!,
-			menuPreviewImg: menuPreviewImgRef.current!,
+			container: containerRef.current ?? document.createElement("div"),
+			menuToggle: menuToggleRef.current ?? document.createElement("div"),
+			menuOverlay: menuOverlayRef.current ?? document.createElement("div"),
+			menuContent: menuContentRef.current ?? document.createElement("div"),
+			menuPreviewImg:
+				menuPreviewImgRef.current ?? document.createElement("div"),
 		});
 
 		return () => {
