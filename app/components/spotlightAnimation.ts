@@ -57,6 +57,13 @@ export function runSpotlightAnimation(
 		spotlightBgImg,
 	} = elements;
 
+	const bgEl = spotlightBgImg.querySelector("img") as HTMLImageElement | null;
+	if (bgEl) {
+		// Make runtime swaps deterministic even with next/image
+		bgEl.removeAttribute("srcset");
+		bgEl.removeAttribute("sizes");
+	}
+
 	/* 🔧 NEW: keep the clip-path exactly aligned to the diagonals
      Your CSS polygon uses 50svh as an X; this converts that to px and rebuilds
      the polygon so the hide boundary coincides with the visual line on all screens. */

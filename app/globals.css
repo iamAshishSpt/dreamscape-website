@@ -221,6 +221,11 @@ footer::before {
 	justify-content: flex-end;
 }
 
+.spotlight-intro-text:nth-child(2) {
+	display: flex;
+	justify-content: flex-start;
+}
+
 /* .spotlight-intro-text:nth-child(2) {
   display: flex;
   justify-content: flex-start;
