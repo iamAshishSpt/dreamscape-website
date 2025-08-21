@@ -3,7 +3,7 @@ import { Calendar, MountainIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { GiDuration } from "react-icons/gi";
-import { Destination } from "../types/destination";
+import type { Destination } from "../types/destination";
 
 export default function DestinationBadgeCard({
 	title,

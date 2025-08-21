@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { forwardRef } from "react";
 import DestinationCard from "../components/TopDestination";
-import { Destination } from "../types/destination";
+import type { Destination } from "../types/destination";
 import "./styles.css";
 
 const Card = forwardRef<
